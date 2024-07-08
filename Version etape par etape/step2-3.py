@@ -3,7 +3,7 @@ from PIL import Image
 # STEP 2
 
 image = Image.open(
-    "/Users/julesquartier/Desktop/PROJETS PERSO/Python/numeriseAI/IMG/step2.jpeg")
+    "/Users/jules/Documents/GitHub/pythonIA/img/step2.jpg")
 largeur, hauteur = image.size
 nouvelle_image = Image.new("RGB", (largeur, hauteur))
 
@@ -24,7 +24,7 @@ for y in range(hauteur):
 
     puissance_ligne.append(compt)
 
-    if compt > 5:  # Si le nombre de pixels presque noir par ligne > 5 ligne écrite
+    if compt > 10:  # Si le nombre de pixels presque noir par ligne > 5 ligne écrite
         ecrit.append(y)
     else:
         non_ecrit.append(y)
@@ -42,13 +42,13 @@ for a in range(hauteur):
 
 # Avant correction des petites lignes
 nouvelle_image.save(
-    "/Users/julesquartier/Desktop/PROJETS PERSO/Python/numeriseAI/IMG/step3.jpeg")
+    "/Users/jules/Documents/GitHub/pythonIA/img/step3.jpg")
 
 
 # STEP 3
 
 image = Image.open(
-    "/Users/julesquartier/Desktop/PROJETS PERSO/Python/numeriseAI/IMG/step3.jpeg")
+    "/Users/jules/Documents/GitHub/pythonIA/img/step3.jpg")
 largeur, hauteur = image.size
 nouvelle_image = Image.new("RGB", (largeur, hauteur))
 
@@ -107,7 +107,7 @@ for a in range(hauteur):
 
 # Après correction des petites lignes
 nouvelle_image.save(
-    "/Users/julesquartier/Desktop/PROJETS PERSO/Python/numeriseAI/IMG/step4.jpeg")
+    "/Users/jules/Documents/GitHub/pythonIA/img/step4.jpg")
 
 
 bandes = []  # Pour savoir de quelle ligne à quelle ligne part une bande

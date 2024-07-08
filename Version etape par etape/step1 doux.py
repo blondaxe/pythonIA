@@ -1,7 +1,7 @@
 from PIL import Image
 
 image = Image.open(
-    "/Users/julesquartier/Desktop/PROJETS PERSO/Python/numeriseAI/IMG/step1.jpg")
+    "/Users/jules/Documents/GitHub/pythonIA/img/step1.jpg")
 largeur, hauteur = image.size
 nouvelle_image = Image.new("RGB", (largeur, hauteur))
 
@@ -13,4 +13,4 @@ for y in range(hauteur):
             nouvelle_image.putpixel((x, y), (255, 255, 255))
 
 nouvelle_image.save(
-    "/Users/julesquartier/Desktop/PROJETS PERSO/Python/numeriseAI/IMG/step2.jpeg")
+    "/Users/jules/Documents/GitHub/pythonIA/img/step2.jpg")

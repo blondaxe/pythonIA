@@ -1,6 +1,6 @@
 from PIL import Image
 
-# Inclure un bout de code (peut être celui dessous) qui permet de passer de step1 à
+# Inclure un bout de code (peut être celui dessous OU celui du step1 doux) qui permet de passer de step1 à
 # step2 içi car on doit utiliser l'image simplifiée dans toute la suite du programme
 '''
 for y in range(hauteur):
@@ -14,7 +14,7 @@ nouvelle_image.save(
 '''
 
 image = Image.open(
-    "/Users/julesquartier/Desktop/PROJETS PERSO/Python/numeriseAI/IMG/step2.jpeg")
+    "/Users/jules/Documents/GitHub/pythonIA/img/step2.jpg")
 largeur, hauteur = image.size
 nouvelle_image = Image.new("RGB", (largeur, hauteur))
 
@@ -28,7 +28,7 @@ puissance_ligne = []  # Donne le nombre de pixels presque noir par ligne
 def verifier_ligne(num):
     global ecrit, non_ecrit
 
-    if num in non_ecrit:
+    if num in non_ecrit: # Si la ligne n'est pas écrite, on ne fait rien
         return
 
     if num == hauteur or num == hauteur - 1 or num == hauteur - 2 or num == hauteur - 3:  # Pour les 4 dernières lignes
@@ -74,7 +74,7 @@ for y in range(hauteur):
 
     puissance_ligne.append(compt)
 
-    if compt > 5:  # Si le nombre de pixels presque noir par ligne > 5 ligne écrite
+    if compt > 10:  # Si le nombre de pixels presque noir par ligne > 10 : ligne écrite
         ecrit.append(y)
     else:
         non_ecrit.append(y)
@@ -96,18 +96,30 @@ for i in ecrit:  # Pour lister les bandes 1 par 1
         bandes.append(bande_actuelle)
         bande_actuelle = []
 
+if bande_actuelle != []:
+    bandes.append(bande_actuelle)
+    bande_actuelle = []
+
 for i in bandes:  # Pour ajustre une marge de 4 aux bandes
     mini = min(i)
-    i.append(mini-4)
-    i.append(mini-3)
-    i.append(mini-2)
-    i.append(mini-1)
+    if mini-4 >= 0:
+        i.append(mini-4)
+    if mini-3 >= 0:
+        i.append(mini-3)
+    if mini-2 >= 0:
+        i.append(mini-2)
+    if mini-1 >= 0:
+        i.append(mini-1)
 
     maxi = max(i)
-    i.append(maxi+4)
-    i.append(maxi+3)
-    i.append(maxi+2)
-    i.append(maxi+1)
+    if maxi+4 <= hauteur:
+        i.append(maxi+4)
+    if maxi+3 <= hauteur:
+        i.append(maxi+3)
+    if maxi+2 <= hauteur:
+        i.append(maxi+2)
+    if maxi+1 <= hauteur:
+        i.append(maxi+1)
 
     i = sorted(i)
-    print(i)
+# bandes contient maintenant tous les bandes avec des écritures
