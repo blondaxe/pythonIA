@@ -9,7 +9,7 @@ nouvelle_image = Image.new("RGB", (largeur, hauteur))
 for y in range(hauteur):
     for x in range(largeur):
         pixel = image.getpixel((x, y))
-        if pixel[0] > 90 and pixel[1] > 90 and pixel[2] > 90:
+        if pixel[0] > 70 and pixel[1] > 70 and pixel[2] > 70:
             nouvelle_image.putpixel((x, y), (255, 255, 255))
 
 nouvelle_image.save(

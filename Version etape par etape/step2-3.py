@@ -24,7 +24,7 @@ for y in range(hauteur):
 
     puissance_ligne.append(compt)
 
-    if compt > 10:  # Si le nombre de pixels presque noir par ligne > 5 ligne écrite
+    if compt > 40:  # Si le nombre de pixels presque noir par ligne > 5 ligne écrite
         ecrit.append(y)
     else:
         non_ecrit.append(y)
@@ -121,6 +121,11 @@ for i in ecrit:  # Pour lister les bandes 1 par 1
     else:
         bandes.append(bande_actuelle)
         bande_actuelle = []
+
+if bande_actuelle != []:
+    bandes.append(bande_actuelle)
+    bande_actuelle = []
+
 
 for i in bandes:  # Pour ajustre une marge de 4 aux bandes
     mini = min(i)
